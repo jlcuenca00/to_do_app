@@ -12,7 +12,7 @@ class DialogBox extends StatelessWidget {
     super.key,
     required this.controller,
     required this.onSave,
-    required this.onCancel,
+    required this.onCancel, 
   });
 
   @override
@@ -36,7 +36,7 @@ class DialogBox extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-        ],
+        ],//ignore
       ),
       content: SizedBox(
         height: 130,

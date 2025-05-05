@@ -75,10 +75,11 @@ class ToDoTile extends StatelessWidget {
                     borderRadius: BorderRadius.circular(3),
                   ),
                   side: BorderSide(
-                    color: taskCompleted
-                        ? theme.colorScheme.secondary
-                        : theme.colorScheme.tertiary,
-                    width: 1.5,
+                    color:
+                        taskCompleted
+                            ? theme.colorScheme.secondary
+                            : theme.colorScheme.tertiary,
+                    width: 2,
                   ),
                 ),
               ),

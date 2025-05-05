@@ -5,7 +5,7 @@ class MyButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
   final bool isCancel;
-
+//ignore
   const MyButton({
     super.key,
     required this.text,
