@@ -98,14 +98,16 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(width: 10),
             Text(
               "Asian College Tasks",
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
+                fontSize: 18,
+                letterSpacing: 0.5,
               ),
             ),
           ],
         ),
-        elevation: 0,
+        elevation: 2,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: createNewTask,
@@ -115,25 +117,58 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
-            color: theme.colorScheme.primary,
-            child: const Row(
+            decoration: BoxDecoration(
+              color: theme.colorScheme.primary,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withAlpha(20),
+                  blurRadius: 3,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
+            child: Column(
               children: [
-                Text(
-                  "1972",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                  child: Row(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                        decoration: BoxDecoration(
+                          color: theme.colorScheme.secondary,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: const Text(
+                          "EST. 1972",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                      const Spacer(),
+                      const Text(
+                        "Student Task Manager",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                Spacer(),
-                Text(
-                  "Student Task Manager",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 16,
+                Container(
+                  height: 4,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        theme.colorScheme.secondary,
+                        theme.colorScheme.tertiary,
+                      ],
+                    ),
                   ),
                 ),
               ],
