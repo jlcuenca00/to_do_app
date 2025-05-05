@@ -3,7 +3,6 @@ import 'package:to_do_app/util/my_button.dart';
 
 // ignore: must_be_immutable
 class DialogBox extends StatelessWidget {
-  // ignore: prefer_typing_uninitialized_variables
   final controller;
   VoidCallback onSave;
   VoidCallback onCancel;
@@ -12,74 +11,90 @@ class DialogBox extends StatelessWidget {
     super.key,
     required this.controller,
     required this.onSave,
-    required this.onCancel, 
+    required this.onCancel,
   });
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
+    
     return AlertDialog(
       backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-        side: BorderSide(color: theme.colorScheme.tertiary, width: 1.5),
+        borderRadius: BorderRadius.circular(15),
+        side: BorderSide(
+          color: theme.colorScheme.primary,
+          width: 2,
+        ),
       ),
       title: Row(
         children: [
-          Icon(Icons.edit_note, color: theme.colorScheme.primary),
+          Icon(
+            Icons.assignment_add,
+            color: theme.colorScheme.primary,
+          ),
           const SizedBox(width: 10),
           Text(
-            "Create Task",
+            "New Task",
             style: TextStyle(
               color: theme.colorScheme.primary,
               fontWeight: FontWeight.bold,
             ),
           ),
-        ],//ignore
+        ],
       ),
-      content: SizedBox(
-        height: 130,
+      content: Container(
+        height: 120,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              padding: const EdgeInsets.all(8.0),
               child: TextField(
                 controller: controller,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(color: theme.colorScheme.tertiary),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(
                       color: theme.colorScheme.primary,
-                      width: 1.5,
                     ),
                   ),
-                  hintText: "Enter task description",
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(
+                      color: theme.colorScheme.primary,
+                      width: 2,
+                    ),
+                  ),
+                  hintText: "Add a new task",
                   hintStyle: TextStyle(
                     color: Color.fromRGBO(
-                      theme.colorScheme.primary.red,
-                      theme.colorScheme.primary.green,
-                      theme.colorScheme.primary.blue,
-                      0.5,
+                      theme.colorScheme.primary.r.toInt(),
+                      theme.colorScheme.primary.g.toInt(),
+                      theme.colorScheme.primary.b.toInt(),
+                      0.6,
                     ),
                   ),
                 ),
                 cursorColor: theme.colorScheme.primary,
               ),
             ),
-            const SizedBox(height: 4),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                MyButton(text: "Dismiss", onPressed: onCancel, isCancel: true),
-                MyButton(text: "Create", onPressed: onSave, isCancel: false),
+                MyButton(
+                  text: "Cancel",
+                  onPressed: onCancel,
+                  isCancel: true,
+                ),
+                const SizedBox(width: 10),
+                MyButton(
+                  text: "Save",
+                  onPressed: onSave,
+                  isCancel: false,
+                ),
               ],
-            ),
+            )
           ],
         ),
       ),
